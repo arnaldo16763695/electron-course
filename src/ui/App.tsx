@@ -1,12 +1,21 @@
-import { useState } from 'react'
+import { useState , useEffect} from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
+  
+  // // @ts-expect-error Esta es la justificacion para usar ts-expect-error
+  // window.electron.getStaticData()
+
+  useEffect(() => {
+     // @ts-expect-error Esta es la justificacion para usar ts-expect-error
+    window.electron.subscribeStatistics((stats) =>console.log(stats))
+  }, [])
+  
 
   return (
-    <>
+    <>  
       <div>
     
         <a href="https://react.dev" target="_blank">
